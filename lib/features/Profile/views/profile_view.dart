@@ -86,8 +86,10 @@ class ProfileView extends StatelessWidget {
                         icon: Icons.edit,
                       ),
                       CusttomContent(
-                        onTap: () {},
-                        title: 'conatc us',
+                        onTap: () {
+                          GoRouter.of(context).push(AppRouter.kFaqsView);
+                        },
+                        title: 'FAQs',
                         icon: Ionicons.chatbubble_ellipses_outline,
                       ),
                       CusttomContent(

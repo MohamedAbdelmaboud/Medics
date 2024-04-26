@@ -8,10 +8,12 @@ import 'package:medical_expert_app/features/Home/views/result_view.dart';
 import 'package:medical_expert_app/features/Home/views/sub_question_view.dart';
 import 'package:medical_expert_app/features/OnBoarding/onboarding.dart';
 import 'package:medical_expert_app/features/Profile/views/edit_profile_view.dart';
+import 'package:medical_expert_app/features/Profile/views/faqs_view.dart';
 import 'package:medical_expert_app/features/auth/views/create_new_password_view.dart';
 import 'package:medical_expert_app/features/auth/views/forgot_password.dart';
 import 'package:medical_expert_app/features/auth/views/login_view.dart';
 import 'package:medical_expert_app/features/auth/views/signup_view.dart';
+
 import '../../Features/Splash/splash_view.dart';
 
 abstract class AppRouter {
@@ -23,6 +25,7 @@ abstract class AppRouter {
   static const kController = '/Controller';
   static const kHomeView = '/HomeView';
   static const kEditProfileView = '/EditProfileView';
+  static const kFaqsView = '/kFaqsView';
   static const kInfoView = '/InfoView';
   static const kGenerlaQuestionView = '/GenerlaQuestionView';
   static const kSubQuestionView = '/SubQuestionView';
@@ -62,6 +65,10 @@ abstract class AppRouter {
     GoRoute(
       path: kEditProfileView,
       builder: (context, state) => const EditProfileView(),
+    ),
+    GoRoute(
+      path: kFaqsView,
+      builder: (context, state) => const FAQsView(),
     ),
     GoRoute(
       path: kController,
