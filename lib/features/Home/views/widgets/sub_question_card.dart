@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medical_expert_app/core/componants/buttons/custom_botton.dart';
 import 'package:medical_expert_app/core/componants/colors.dart';
+import 'package:medical_expert_app/features/Home/views/widgets/custom_quiz_button.dart';
 
 class SubQuestionCard extends StatefulWidget {
   const SubQuestionCard({
@@ -69,11 +70,13 @@ class _SubQuestionCardState extends State<SubQuestionCard> {
                 children: [
                   SizedBox(
                     width: 150,
-                    child: CustomButton(
-                      borderColor: Colors.transparent,
+                    child: CustomQuizButton(
+                                          borderColor: Colors.black,
+
                       color: yes ? kPrimary : kSecondary3,
                       title: 'Yes',
-                      titleColor: yes ? Colors.white : kBlack,
+                      titleColor:  kBlack,
+
                       onPressed: () {
                         if (!yes) {
                           setState(() {
@@ -87,11 +90,11 @@ class _SubQuestionCardState extends State<SubQuestionCard> {
                   ),
                   SizedBox(
                     width: 150,
-                    child: CustomButton(
-                      borderColor: Colors.transparent,
+                    child: CustomQuizButton(
+                      borderColor: Colors.black,
                       color: no ? kPrimary : kSecondary3,
                       title: 'No',
-                      titleColor: no ? Colors.white : kBlack,
+                      titleColor:  kBlack,
                       onPressed: () {
                         if (!no) {
                           setState(() {

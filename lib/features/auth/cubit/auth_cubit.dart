@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:medical_expert_app/core/api/end_ponits.dart';
 
 import '../../../core/api/api_consumer.dart';
+import '../models/sign_in_model.dart';
 
 part 'auth_state.dart';
 
@@ -51,6 +52,8 @@ class AuthCubit extends Cubit<AuthState> {
         ApiKeys.email: signInEmail.text,
         ApiKeys.password: signInPassword.text
       });
+      final user = SignInModel.fromJson(response);
+
       emit(SignInSuccess());
       debugPrint(response.data);
     } catch (e) {
