@@ -64,6 +64,7 @@ class _LoginViewState extends State<LoginView> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         CustomTextFromField(
+                          controller: context.read<AuthCubit>().signInEmail,
                           onChanged: (data) {
                             setState(() {
                               isValidate = isEmail(data!);
@@ -77,6 +78,7 @@ class _LoginViewState extends State<LoginView> {
                           ),
                         ),
                         CustomPassword(
+                          controller: context.read<AuthCubit>().signInPassword,
                           onChanged: (data) {
                             password = data;
                           },

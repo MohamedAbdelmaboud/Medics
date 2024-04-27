@@ -28,11 +28,10 @@ class AuthCubit extends Cubit<AuthState> {
   //Sign up password
   TextEditingController signUpPassword = TextEditingController();
   signUp(context) async {
-    Dio dio = Dio();
 
     emit(SignUpLoading());
     try {
-      final response = await api.post('${EndPoint.baseUrl}signup', data: {
+      final response = await api.post('${EndPoint.baseUrl}signup',isFromData: true, data: {
         ApiKeys.name: signUpName.text,
         ApiKeys.age: signUpAge.text,
         ApiKeys.gender: "Male",
@@ -54,7 +53,7 @@ class AuthCubit extends Cubit<AuthState> {
     try {
       final response = await api.post('${EndPoint.baseUrl}signin', data: {
         ApiKeys.email: signInEmail.text,
-        ApiKeys.password: signInPassword.text
+        ApiKeys.password: signInPassword.text,
       });
       final user = SignInModel.fromJson(response);
       CacheHelper().saveData(key: ApiKeys.token, value: user.token);
