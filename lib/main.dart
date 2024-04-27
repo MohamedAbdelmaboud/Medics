@@ -5,6 +5,7 @@ import 'package:medical_expert_app/core/api/dio_consumer.dart';
 import 'package:medical_expert_app/core/cache/cache_helper.dart';
 import 'package:medical_expert_app/core/componants/colors.dart';
 import 'package:medical_expert_app/core/function/app_router.dart';
+import 'package:medical_expert_app/features/Home/controller/cubit/health_diagnose_cubit.dart';
 import 'package:medical_expert_app/features/Home/controller/cubit/questions_cubit.dart';
 import 'package:medical_expert_app/features/auth/cubit/auth_cubit.dart';
 
@@ -23,6 +24,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => AuthCubit(DioConsumer(dio: Dio())),
+        ),
+        BlocProvider(
+          create: (context) => HealthDiagnoseCubit(DioConsumer(dio: Dio())),
         ),
         BlocProvider(
           create: (context) => QuestionsCubit(),

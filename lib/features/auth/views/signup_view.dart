@@ -158,7 +158,11 @@ class _SignUpViewState extends State<SignUpView> {
                                 onPressed: () {
                                   if (formKey.currentState!.validate()) {
                                     BlocProvider.of<AuthCubit>(context)
-                                        .signUp();
+                                        .signUp(context);
+                                    state is SignUpSuccess
+                                        ? GoRouter.of(context).pushReplacement(
+                                            AppRouter.kLoginView)
+                                        : null;
                                   }
                                   //   BlocProvider.of<EmailAuthCubit>(context)
                                   //       .loginUser(

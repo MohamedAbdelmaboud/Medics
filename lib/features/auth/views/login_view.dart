@@ -109,7 +109,7 @@ class _LoginViewState extends State<LoginView> {
                                 title: 'Login',
                                 onPressed: () {
                                   if (formKey.currentState!.validate()) {
-                                    context.read<AuthCubit>().signIn();
+                                    context.read<AuthCubit>().signIn(context);
                                   }
                                 }),
                         Padding(

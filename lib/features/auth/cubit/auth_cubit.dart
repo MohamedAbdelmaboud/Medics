@@ -1,9 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:medical_expert_app/core/api/end_ponits.dart';
 
 import '../../../core/api/api_consumer.dart';
+import '../../../core/cache/cache_helper.dart';
+import '../../../core/function/app_router.dart';
 import '../models/sign_in_model.dart';
 
 part 'auth_state.dart';
@@ -24,7 +27,7 @@ class AuthCubit extends Cubit<AuthState> {
   TextEditingController signInPassword = TextEditingController();
   //Sign up password
   TextEditingController signUpPassword = TextEditingController();
-  signUp() async {
+  signUp(context) async {
     Dio dio = Dio();
 
     emit(SignUpLoading());
@@ -39,13 +42,14 @@ class AuthCubit extends Cubit<AuthState> {
         ApiKeys.password: signUpPassword.text
       });
       emit(SignUpSuccess());
+      GoRouter.of(context).pushReplacement(AppRouter.kLoginView);
       debugPrint(response.data);
     } catch (e) {
       emit(SignUpFailure(errMessage: e.toString()));
     }
   }
 
-  signIn() async {
+  signIn(context) async {
     emit(SignInLoading());
     try {
       final response = await api.post('${EndPoint.baseUrl}signin', data: {
@@ -53,8 +57,10 @@ class AuthCubit extends Cubit<AuthState> {
         ApiKeys.password: signInPassword.text
       });
       final user = SignInModel.fromJson(response);
+      CacheHelper().saveData(key: ApiKeys.token, value: user.token);
 
       emit(SignInSuccess());
+      GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
       debugPrint(response.data);
     } catch (e) {
       emit(SignInFailure(errMessage: e.toString()));

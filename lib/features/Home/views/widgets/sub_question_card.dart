@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medical_expert_app/core/componants/buttons/custom_botton.dart';
 import 'package:medical_expert_app/core/componants/colors.dart';
 import 'package:medical_expert_app/features/Home/views/widgets/custom_quiz_button.dart';
 
@@ -71,12 +70,10 @@ class _SubQuestionCardState extends State<SubQuestionCard> {
                   SizedBox(
                     width: 150,
                     child: CustomQuizButton(
-                                          borderColor: Colors.black,
-
+                      borderColor: Colors.black,
                       color: yes ? kPrimary : kSecondary3,
                       title: 'Yes',
-                      titleColor:  kBlack,
-
+                      titleColor: kBlack,
                       onPressed: () {
                         if (!yes) {
                           setState(() {
@@ -94,7 +91,7 @@ class _SubQuestionCardState extends State<SubQuestionCard> {
                       borderColor: Colors.black,
                       color: no ? kPrimary : kSecondary3,
                       title: 'No',
-                      titleColor:  kBlack,
+                      titleColor: kBlack,
                       onPressed: () {
                         if (!no) {
                           setState(() {

@@ -27,7 +27,7 @@ abstract class AppRouter {
   static const kEditProfileView = '/EditProfileView';
   static const kFaqsView = '/kFaqsView';
   static const kInfoView = '/InfoView';
-  static const kGenerlaQuestionView = '/GenerlaQuestionView';
+  static const kGeneralQuestionView = '/GenerlaQuestionView';
   static const kSubQuestionView = '/SubQuestionView';
 
   static const kResultView = '/ResultView';
@@ -79,7 +79,7 @@ abstract class AppRouter {
       builder: (context, state) => const InfoView(),
     ),
     GoRoute(
-      path: kGenerlaQuestionView,
+      path: kGeneralQuestionView,
       builder: (context, state) => const GenerlaQuestionView(),
     ),
     GoRoute(

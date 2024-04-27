@@ -9,11 +9,11 @@ class CustomTextField extends StatefulWidget {
     required this.labelText,
     this.keyboardType = TextInputType.number,
     required this.title,
-    required this.subtitle,
+    required this.subtitle, this.controller,
   }) : super(key: key);
   final String labelText, title, subtitle;
   final TextInputType? keyboardType;
-
+  final TextEditingController? controller;
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
@@ -50,6 +50,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     setState(() {});
                     return null;
                   },
+                  controller: widget.controller,
                   keyboardType: widget.keyboardType,
                   decoration: InputDecoration(
                     isDense: true,
