@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:medical_expert_app/features/Home/controller/cubit/health_diagnose_cubit.dart';
 import 'package:medical_expert_app/features/Home/controller/list_questions.dart';
 
 import '../../../../core/api/api_consumer.dart';
@@ -11,6 +10,7 @@ class QuestionsCubit extends Cubit<QuestionsState> {
   QuestionsCubit(this.api) : super(QuestionsInitial());
   final ApiConsumer api;
   List<String> questions = [];
+   List<String> answers=[];
   TextEditingController heartRateController = TextEditingController();
   TextEditingController systolicBloodPressureController =
       TextEditingController();
@@ -28,30 +28,25 @@ class QuestionsCubit extends Cubit<QuestionsState> {
     context,
   }) async {
     emit(QuestionsLoading());
-    try {
-      questions = [];
-      if (answer1 == 'Yes') {
-        questions.addAll(Questions.questions1);
-      }
-      if (answer2 == 'Yes') {
-        questions.addAll(Questions.questions2);
-      }
-      if (answer3 == 'Yes') {
-        questions.addAll(Questions.questions3);
-      }
-      if (answer4 == 'Yes') {
-        questions.addAll(Questions.questions4);
-      }
-      await BlocProvider.of<HealthDiagnoseCubit>(context).postHealthDiagnose(
-        context,
-        answer1,
-        answer2,
-        answer3,
-        answer4,
-      );
-      emit(QuestionsSuccess(questions: questions));
-    } catch (e) {
-      emit(QuestionsFailure(error: 'Failed to post health data: $e'));
+
+    questions = [];
+    if (answer1 == 'Yes') {
+      answers.add(answer1!);
+      questions.addAll(Questions.questions1);
     }
+    if (answer2 == 'Yes') {
+      answers.add(answer2!);
+      questions.addAll(Questions.questions2);
+    }
+    if (answer3 == 'Yes') {
+      answers.add(answer3!);
+      questions.addAll(Questions.questions3);
+    }
+    if (answer4 == 'Yes') {
+      answers.add(answer4!);
+      questions.addAll(Questions.questions4);
+    }
+
+    emit(QuestionsSuccess(questions: questions));
   }
 }

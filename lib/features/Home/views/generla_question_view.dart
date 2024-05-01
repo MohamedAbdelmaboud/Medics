@@ -7,6 +7,8 @@ import 'package:medical_expert_app/core/function/app_router.dart';
 import 'package:medical_expert_app/features/Home/controller/cubit/questions_cubit.dart';
 import 'package:medical_expert_app/features/Home/views/widgets/question.dart';
 
+import '../controller/cubit/health_diagnose_cubit.dart';
+
 class GeneralQuestionView extends StatefulWidget {
   const GeneralQuestionView({super.key});
 
@@ -16,9 +18,12 @@ class GeneralQuestionView extends StatefulWidget {
 
 class _GeneralQuestionViewState extends State<GeneralQuestionView> {
   String? answer1, answer2, answer3, answer4;
+
   Color color = Colors.black;
   @override
   Widget build(BuildContext context) {
+    List<String?> answers = BlocProvider.of<QuestionsCubit>(context).answers;
+
     return Scaffold(
       backgroundColor: kPrimary,
       appBar: AppBar(
@@ -110,6 +115,14 @@ class _GeneralQuestionViewState extends State<GeneralQuestionView> {
                       answer2: answer2,
                       answer3: answer3,
                       answer4: answer4);
+                  BlocProvider.of<HealthDiagnoseCubit>(context)
+                      .postHealthDiagnose(
+                    context,
+                    answers[0],
+                    answers[1],
+                    answers[2],
+                    answers[3],
+                  );
 
                   GoRouter.of(context).push(AppRouter.kSubQuestionView);
                 } else {
