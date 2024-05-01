@@ -23,12 +23,10 @@ class CustomQuizButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
       child: Container(
         decoration: BoxDecoration(
-            boxShadow: [
-                      BoxShadow(
-                          blurRadius: 4,
-                          spreadRadius: 3,
-                          color: kPrimary.withOpacity(.5))
-                    ],
+          boxShadow: [
+            BoxShadow(
+                blurRadius: 4, spreadRadius: 3, color: kPrimary.withOpacity(.5))
+          ],
           color: color,
           border: Border.all(color: borderColor),
           borderRadius: BorderRadius.circular(35),

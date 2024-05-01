@@ -28,10 +28,10 @@ class AuthCubit extends Cubit<AuthState> {
   //Sign up password
   TextEditingController signUpPassword = TextEditingController();
   signUp(context) async {
-
     emit(SignUpLoading());
     try {
-      final response = await api.post('${EndPoint.baseUrl}signup',isFromData: true, data: {
+      final response =
+          await api.post('${EndPoint.baseUrl}signup', isFromData: true, data: {
         ApiKeys.name: signUpName.text,
         ApiKeys.age: signUpAge.text,
         ApiKeys.gender: "Male",
@@ -50,19 +50,33 @@ class AuthCubit extends Cubit<AuthState> {
 
   signIn(context) async {
     emit(SignInLoading());
+
     try {
       final response = await api.post('${EndPoint.baseUrl}signin', data: {
         ApiKeys.email: signInEmail.text,
         ApiKeys.password: signInPassword.text,
       });
-      final user = SignInModel.fromJson(response);
-      CacheHelper().saveData(key: ApiKeys.token, value: user.token);
 
-      emit(SignInSuccess());
+      final user = SignInModel.fromJson(response.data);
+      await CacheHelper().saveData(key: ApiKeys.token, value: user.token);
+
       GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
-      debugPrint(response.data);
+      emit(SignInSuccess());
     } catch (e) {
-      emit(SignInFailure(errMessage: e.toString()));
+      if (e is DioException) {
+        // Handle DioError
+        String errorMessage;
+        if (e.response?.statusCode == 401) {
+          errorMessage = 'Invalid email or password.';
+        } else {
+          errorMessage = 'An error occurred. Please try again later.';
+        }
+        emit(SignInFailure(errMessage: errorMessage));
+      } else {
+        // Handle other exceptions
+        emit(SignInFailure(
+            errMessage: 'An error occurred. Please try again later.'));
+      }
     }
   }
 }

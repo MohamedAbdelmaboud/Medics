@@ -61,7 +61,7 @@ class _ExpandTextState extends State<ExpandText> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                             Text(
+                            Text(
                               widget.title,
                               style: TextStyle(
                                   color: Colors.black,
@@ -84,7 +84,7 @@ class _ExpandTextState extends State<ExpandText> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                             Text(
+                            Text(
                               widget.title,
                               style: TextStyle(
                                   color: Colors.black,

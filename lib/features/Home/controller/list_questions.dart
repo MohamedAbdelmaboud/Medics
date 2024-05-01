@@ -1,4 +1,4 @@
-class Questhins {
+class Questions {
   static List<String> questions1 = [
     'Do you have abdominal pain',
     'Do you have chills',

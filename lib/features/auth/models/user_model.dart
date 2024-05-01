@@ -28,6 +28,4 @@ class UserModel {
         patientEmail: json[ApiKeys.email] as String?,
         patientPassword: json[ApiKeys.password] as String?,
       );
-
-  
 }

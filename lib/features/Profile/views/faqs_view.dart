@@ -57,22 +57,19 @@ class FAQsView extends StatelessWidget {
                   ),
                   Flexible(
                       child: ExpandText(
-                    sentence:
-                        '''What is a normal resting heart rate for adults?
+                    sentence: '''What is a normal resting heart rate for adults?
  A normal resting heart rate for adults is between 60 and 100 beats per minute (bpm).''',
                     title: 'HeartBeat',
                   )),
                   Flexible(
                       child: ExpandText(
-                    sentence:
-                        '''What is a normal resting heart rate for adults?
+                    sentence: '''What is a normal resting heart rate for adults?
  A normal resting heart rate for adults is between 60 and 100 beats per minute (bpm).''',
                     title: 'Fasting Blood Sugar',
                   )),
                   Flexible(
                       child: ExpandText(
-                    sentence:
-                        '''What is a normal resting heart rate for adults?
+                    sentence: '''What is a normal resting heart rate for adults?
  A normal resting heart rate for adults is between 60 and 100 beats per minute (bpm).''',
                     title: 'Blood Pressure',
                   )),

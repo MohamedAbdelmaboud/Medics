@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:medical_expert_app/core/componants/buttons/custom_botton.dart';
 import 'package:medical_expert_app/core/componants/colors.dart';
 import 'package:medical_expert_app/core/function/app_router.dart';
+import 'package:medical_expert_app/features/Home/controller/cubit/health_diagnose_cubit.dart';
 import 'package:medical_expert_app/features/Home/controller/cubit/questions_cubit.dart';
 import 'package:medical_expert_app/features/Home/views/widgets/sub_question_card.dart';
 
@@ -87,7 +88,6 @@ class _SubQuestionViewState extends State<SubQuestionView> {
                       title: 'Next',
                       onPressed: !answers.any((element) => element == null)
                           ? () {
-                              print(answers);
                               GoRouter.of(context).push(AppRouter.kResultView);
                             }
                           : null),

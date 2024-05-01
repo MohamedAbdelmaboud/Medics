@@ -7,6 +7,8 @@ import 'package:medical_expert_app/features/Home/controller/cubit/health_diagnos
 import 'package:medical_expert_app/features/Home/views/widgets/custom_text_field.dart';
 import 'package:medical_expert_app/features/Home/views/widgets/date_picker.dart';
 
+import '../../../core/function/app_router.dart';
+
 class InfoView extends StatefulWidget {
   const InfoView({super.key});
 
@@ -150,9 +152,8 @@ class _InfoViewState extends State<InfoView> {
                                     title: 'Submit',
                                     onPressed: () {
                                       if (formKey.currentState!.validate()) {
-                                        context
-                                            .read<HealthDiagnoseCubit>()
-                                            .postHealthDiagnose(context);
+                                        GoRouter.of(context).push(
+                                            AppRouter.kGeneralQuestionView);
                                       }
                                     }),
                           ),

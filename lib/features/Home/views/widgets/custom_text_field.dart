@@ -9,7 +9,8 @@ class CustomTextField extends StatefulWidget {
     required this.labelText,
     this.keyboardType = TextInputType.number,
     required this.title,
-    required this.subtitle, this.controller,
+    required this.subtitle,
+    this.controller,
   }) : super(key: key);
   final String labelText, title, subtitle;
   final TextInputType? keyboardType;

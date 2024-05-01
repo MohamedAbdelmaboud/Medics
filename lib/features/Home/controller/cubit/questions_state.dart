@@ -18,3 +18,11 @@ final class QuestionsFailure extends QuestionsState {
 
   QuestionsFailure({required this.error});
 }
+
+final class QuestionsPosted extends QuestionsState {}
+
+final class QuestionsNotPosted extends QuestionsState {
+  final String errMessage;
+
+  QuestionsNotPosted({required this.errMessage});
+}

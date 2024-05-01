@@ -35,7 +35,7 @@ abstract class AppRouter {
 
   static final router = GoRouter(routes: [
     GoRoute(
-      path: '/',
+      path: '/s',
       builder: (context, state) => const SplashView(),
     ),
     GoRoute(
@@ -71,7 +71,7 @@ abstract class AppRouter {
       builder: (context, state) => const FAQsView(),
     ),
     GoRoute(
-      path: kController,
+      path: '/',
       builder: (context, state) => const Controller(),
     ),
     GoRoute(
@@ -80,7 +80,7 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: kGeneralQuestionView,
-      builder: (context, state) => const GenerlaQuestionView(),
+      builder: (context, state) => const GeneralQuestionView(),
     ),
     GoRoute(
       path: kSubQuestionView,

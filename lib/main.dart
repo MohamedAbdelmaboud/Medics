@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           create: (context) => HealthDiagnoseCubit(DioConsumer(dio: Dio())),
         ),
         BlocProvider(
-          create: (context) => QuestionsCubit(),
+          create: (context) => QuestionsCubit(DioConsumer(dio: Dio())),
         ),
       ],
       child: MaterialApp.router(

@@ -7,14 +7,14 @@ import 'package:medical_expert_app/core/function/app_router.dart';
 import 'package:medical_expert_app/features/Home/controller/cubit/questions_cubit.dart';
 import 'package:medical_expert_app/features/Home/views/widgets/question.dart';
 
-class GenerlaQuestionView extends StatefulWidget {
-  const GenerlaQuestionView({super.key});
+class GeneralQuestionView extends StatefulWidget {
+  const GeneralQuestionView({super.key});
 
   @override
-  State<GenerlaQuestionView> createState() => _GenerlaQuestionViewState();
+  State<GeneralQuestionView> createState() => _GeneralQuestionViewState();
 }
 
-class _GenerlaQuestionViewState extends State<GenerlaQuestionView> {
+class _GeneralQuestionViewState extends State<GeneralQuestionView> {
   String? answer1, answer2, answer3, answer4;
   Color color = Colors.black;
   @override
